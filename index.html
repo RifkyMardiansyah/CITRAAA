@@ -2,16 +2,18 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fff8f2">
 <title>💌 Surat khusus buat Citraaa</title>
 <!--
   ============================================================
   CARA PAKAI (5 menit):
   1. Ganti CONFIG di bawah (nama dia, alasan, nama kamu)
-  2. Taruh foto dia dengan nama persis: foto.jpg
-     (sejajar sama file ini)
+  2. Letakkan foto.jpg dan lagu.mp3 di folder Langa,
+     atau sejajar dengan file ini.
   3. Upload KE GITHUB: buat repo baru → upload index.html
-     + foto.jpg → Settings → Pages → pilih branch "main"
+     + folder Langa (atau kedua file aset) → Settings → Pages
+     → pilih branch "main"
   4. Selesai! Link-nya tinggal dikirim ke dia.
 
   FITUR "VIEW ONCE":
@@ -29,7 +31,7 @@
     --abu:#a08a80; --line:#f0ddd2;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--krem);color:var(--tinta);min-height:100vh;overflow-x:hidden}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--krem);color:var(--tinta);min-height:100vh;min-height:100svh;overflow-x:hidden}
   .serif{font-family:'Playfair Display',serif}
   .tangan{font-family:'Caveat',cursive}
 
@@ -38,7 +40,7 @@
   #bgHati span{position:absolute;bottom:-40px;color:var(--rose);opacity:.14;animation:naik linear infinite}
   @keyframes naik{to{transform:translateY(-110vh) rotate(30deg)}}
 
-  .layar{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;text-align:center}
+  .layar{position:relative;z-index:1;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(32px + env(safe-area-inset-top)) 20px calc(32px + env(safe-area-inset-bottom));text-align:center}
   .sembunyi{display:none!important}
 
   /* ---------- amplop ---------- */
@@ -47,13 +49,15 @@
   .amplop-ikon{width:110px;height:80px;background:var(--rose);border-radius:10px;position:relative;margin:0 auto;box-shadow:0 12px 30px rgba(201,79,93,.3)}
   .amplop-ikon::before{content:'';position:absolute;inset:0;border-radius:10px;background:var(--rose-tua);clip-path:polygon(0 0,100% 0,50% 62%)}
   .amplop-ikon::after{content:'💌';position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:26px}
-  #tombolTahan{margin-top:34px;border:none;background:var(--tinta);color:#fff;padding:15px 34px;border-radius:999px;font-size:16px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;font-family:inherit;min-width:230px}
+  #tombolTahan{margin-top:34px;border:none;background:var(--tinta);color:#fff;padding:15px 34px;border-radius:999px;font-size:16px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;font-family:inherit;min-width:230px;min-height:52px}
   #tombolTahan .isi{position:relative;z-index:1}
-  #tombolTahan .isiJreng{position:absolute;inset:0;background:var(--rose-tua);transform:scaleX(0);transform-origin:left}
+  #tombolTahan .isiJreng,#mintaBaru .isiJreng{position:absolute;inset:0;background:var(--rose-tua);transform:scaleX(0);transform-origin:left;pointer-events:none}
+  #tombolTahan .isi,#mintaBaru .isi{position:relative;z-index:1}
+  #tombolTahan,#mintaBaru{user-select:none;-webkit-user-select:none}
   #hintTahan{margin-top:14px;font-size:13px;color:var(--abu)}
 
   /* ---------- surat ---------- */
-  #surat{width:100%;max-width:480px;text-align:left}
+  #surat{width:100%;max-width:520px;text-align:left}
   #timerWrap{position:sticky;top:0;z-index:5;background:var(--krem);padding:10px 0 8px;margin-bottom:18px}
   #timerBar{height:5px;border-radius:99px;background:var(--line);overflow:hidden}
   #timerIsi{height:100%;background:var(--emas);border-radius:99px;transition:width 1s linear, background .5s}
@@ -79,35 +83,34 @@
   .meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--rose),var(--rose-tua));width:0%;transition:width .35s ease}
   .meter-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .meter-label{font-size:13px;color:var(--abu)}
-  .heart-btn{width:46px;height:46px;border-radius:99px;border:1.5px solid var(--rose);background:#fff;color:var(--rose-tua);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .12s;flex:none;font-size:20px}
+  .heart-btn{width:48px;height:48px;border-radius:99px;border:1.5px solid var(--rose);background:#fff;color:var(--rose-tua);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .12s;flex:none;font-size:20px}
   .heart-btn:active{transform:scale(.82)}
   .comp{display:flex;flex-direction:column;gap:8px}
-  .comp label{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer;font-size:14px;line-height:1.55;background:#fff;transition:background .2s,border-color .2s}
-  .comp label:has(input:checked){background:#fdeef0;border-color:#f3c2c9}
-  .comp input[type="checkbox"]{accent-color:var(--rose-tua);margin-top:3px;flex:none}
+  .comp label{display:flex;align-items:flex-start;gap:10px;padding:13px;border:1px solid var(--line);border-radius:12px;cursor:pointer;font-size:14px;line-height:1.55;background:#fff;transition:background .2s,border-color .2s}
+  .comp label.dipilih,.custom-kompensasi.dipilih{background:#fdeef0;border-color:#f3c2c9}
+  .comp input[type="checkbox"],.custom-kompensasi input[type="checkbox"]{width:20px;height:20px;accent-color:var(--rose-tua);margin:1px 0 0;flex:none}
   .custom-kompensasi{margin-top:10px;padding:13px;border:1px dashed #e7b5bc;border-radius:12px;background:#fff9fa}
   .custom-kompensasi label{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;cursor:pointer}
-  .custom-kompensasi textarea{width:100%;min-height:76px;margin-top:10px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;resize:vertical;font:inherit;font-size:14px;color:var(--tinta);background:#fff}
+  .custom-kompensasi textarea{width:100%;min-height:92px;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:10px;resize:vertical;font:inherit;font-size:16px;color:var(--tinta);background:#fff}
   .custom-kompensasi textarea:focus{outline:2px solid #f3c2c9;border-color:var(--rose)}
   .musik{display:flex;align-items:center;gap:12px}
   .musik-ikon{font-size:25px;flex:none}
   .musik-info{flex:1;min-width:0}
   .musik-info p{font-size:13px;color:var(--abu);line-height:1.5;margin-top:3px}
-  .musik-btn{border:0;border-radius:999px;padding:10px 15px;background:var(--rose-tua);color:white;font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
+  .musik-btn{border:0;border-radius:999px;padding:12px 16px;min-height:48px;background:var(--rose-tua);color:white;font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
   .prob-box{text-align:center;padding:6px 0 2px}
   .prob-num{font-size:40px;font-weight:700;color:var(--rose-tua);font-variant-numeric:tabular-nums}
   .prob-cap{font-size:12.5px;color:var(--abu);margin-top:4px}
 
-  .btn-zone{position:relative;height:90px;margin-top:8px}
-  .forgive{position:absolute;left:50%;transform:translateX(-50%);padding:14px 30px;border-radius:999px;border:none;background:var(--tinta);color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:transform .45s cubic-bezier(.2,1.4,.4,1),opacity .3s;white-space:nowrap;font-family:inherit}
-  .forgive.dodging{transform:translateX(calc(-50% - 110px)) rotate(-7deg)}
-  .forgive.gone{opacity:0;pointer-events:none}
+  .btn-zone{margin-top:8px}
+  .forgive{display:block;width:100%;min-height:52px;padding:14px 20px;border-radius:999px;border:none;background:var(--tinta);color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:opacity .2s;white-space:normal;font-family:inherit}
+  .forgive.gone{display:none}
   .final{text-align:center;padding:26px 18px;border:2px solid var(--rose);border-radius:16px;background:#fff5f6;position:relative;overflow:hidden}
   .final h3{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:10px}
   .final p{font-size:14.5px;line-height:1.7;color:#5d4a41}
   .sign{margin-top:16px;font-size:16px;color:var(--abu);font-family:'Caveat',cursive;font-size:21px}
 
-  #tombolBakar{margin:6px auto 0;display:block;background:none;border:1.5px dashed var(--emas);color:#b98a2f;padding:11px 24px;border-radius:99px;font-size:14px;cursor:pointer;font-family:inherit}
+  #tombolBakar{margin:6px auto 0;display:block;min-height:48px;background:none;border:1.5px dashed var(--emas);color:#b98a2f;padding:11px 24px;border-radius:99px;font-size:14px;cursor:pointer;font-family:inherit}
   #tombolBakar:hover{background:#fdf6e7}
 
   .confetti{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:3}
@@ -128,7 +131,22 @@
   /* ---------- layar hangus ---------- */
   #layarHangus h1{font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,34px);margin-bottom:12px}
   #layarHangus p{color:var(--abu);font-size:15px;line-height:1.7;max-width:360px}
-  #mintaBaru{margin-top:30px;border:none;background:none;color:var(--abu);font-size:13px;cursor:pointer;font-family:inherit}
+  #mintaBaru{position:relative;overflow:hidden;margin-top:30px;min-height:48px;padding:12px 18px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--tinta);font-size:14px;cursor:pointer;font-family:inherit}
+  button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid #c94f5d;outline-offset:3px}
+  button{touch-action:manipulation}
+  @media(max-width:520px){
+    .layar{padding-left:16px;padding-right:16px}
+    #suratLayar{padding-top:10px!important}
+    .kartu{padding:19px;margin-bottom:14px}
+    .polaroid{max-width:min(260px,82vw)}
+    .musik{gap:9px}
+    .musik-ikon{font-size:22px}
+    .musik-btn{padding:11px 12px}
+    .final{padding:22px 15px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  }
 </style>
 <base target="_blank">
 </head>
@@ -140,9 +158,9 @@
 <!-- ==================== AMPLOP ==================== -->
 <div class="layar" id="amplop">
   <div class="amplop-ikon"></div>
-  <h1>Ada surat buat Citraaa</h1>
+  <h1>Ada surat buat kamu</h1>
   <p>Surat ini isinya permintaan maaf buat kamu. Tapi bukanya cuma bisa <b>sekali</b> ya habis itu hangus 💌</p>
-  <button id="tombolTahan"><span class="isiJreng" id="jreng"></span><span class="isi">Tahan untuk membuka 💌</span></button>
+  <button id="tombolTahan" type="button"><span class="isiJreng" id="jreng"></span><span class="isi">Tahan untuk membuka 💌</span></button>
   <div id="hintTahan">Tahan sebentar, sekitar 1,5 detik ya</div>
 </div>
 
@@ -157,7 +175,7 @@
   <div class="polaroid muncul">
     <div class="selotip"></div>
     <div class="bingkai">
-      <img src="foto.jpg" alt="foto dia" onerror="this.outerHTML='<div class=placeholder>📷<br>taruh foto dia dengan nama <b>foto.jpg</b> di folder yang sama dengan file ini ya</div>'">
+      <img src="Langa/foto.jpg" alt="foto dia" onerror="if(!this.dataset.fallback){this.dataset.fallback='true';this.src='foto.jpg'}else{this.outerHTML='<div class=placeholder>📷<br>taruh foto dia dengan nama <b>foto.jpg</b> di folder Langa atau sejajar dengan file ini</div>'}">
     </div>
     <div class="keterangan tangan" id="ketFoto">maaf yaaa 🥺</div>
   </div>
@@ -171,7 +189,10 @@
       </div>
       <button class="musik-btn" id="musikBtn" type="button">▶ Putar</button>
     </div>
-    <audio id="lagu" loop preload="auto"><source src="lagu.mp3" type="audio/mpeg"></audio>
+    <audio id="lagu" loop preload="auto">
+      <source src="Langa/lagu.mp3" type="audio/mpeg">
+      <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
   <div class="kartu muncul">
@@ -183,7 +204,7 @@
 
   <div class="kartu muncul">
     <h2>Meter Pengampunan 🫀</h2>
-    <p style="font-size:13.5px;color:var(--abu)">Pencet lovenyanya seberapa persen Saya akan dimaafkan. Pencet berkali-kali juga boleh kok.</p>
+    <p style="font-size:13.5px;color:var(--abu)">Ketuk hati ini untuk menaikkan meter penyesalan. Boleh ditekan beberapa kali.</p>
     <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
     <div class="meter-row">
       <span class="meter-label" id="meterLabel">Pencet hatinya dulu ❤️</span>
@@ -192,15 +213,15 @@
   </div>
 
   <div class="kartu muncul">
-    <h2>Biar Saya nebus salah, pilih aja yang kamu mau</h2>
+    <h2>Pilih bentuk ganti rugi yang kamu inginkan</h2>
     <div class="comp" id="compList">
-      <label><input type="checkbox" checked> Jajan atau ngopi bareng, kali ini Saya yang traktir</label>
-      <label><input type="checkbox" checked> Jadi pendengar curhat kamu selama 3 hari (nggak protes, janji)</label>
-      <label><input type="checkbox" checked> Kamu bebas pilih makanan</label>
-      <label><input type="checkbox" checked> Satu pelukan pas ketemu nanti, kalau kamu mau 🫂</label>
+      <label><input type="checkbox"> Jajan atau ngopi bareng, kali ini Saya yang traktir</label>
+      <label><input type="checkbox"> Jadi pendengar curhat kamu selama 3 hari (nggak protes, janji)</label>
+      <label><input type="checkbox"> Kamu bebas pilih makanan</label>
+      <label><input type="checkbox"> Satu pelukan pas ketemu nanti, kalau kamu mau 🫂</label>
     </div>
     <div class="custom-kompensasi">
-      <label><input type="checkbox" id="customDipilih" checked> Atau, kamu boleh pilih sendiri mau apa 💌</label>
+      <label><input type="checkbox" id="customDipilih"> Atau, kamu boleh pilih sendiri mau apa 💌</label>
       <textarea id="permintaanCustom" placeholder="Tulis permintaan kamu di sini... misalnya: temenin Saya jalan ke tempat yang Saya pilih 😌" aria-label="Tulis kompensasi pilihan sendiri"></textarea>
       <p style="font-size:12px;color:var(--abu);margin-top:7px;line-height:1.5">Tulis aja maunya apa. Nanti tinggal tagih ke Saya, ya</p>
     </div>
@@ -211,8 +232,8 @@
     <div class="prob-cap">kemungkinan Saya dimaafin (Heummmm)</div>
   </div>
 
-  <div class="btn-zone kartu muncul" style="overflow:visible">
-    <button class="forgive" id="forgiveBtn">Maafin Saya, yaaa? 🥺</button>
+  <div class="btn-zone kartu muncul">
+    <button class="forgive" id="forgiveBtn" type="button">Maafin Saya, yaaa? 🥺</button>
     <div class="final sembunyi" id="finalCard">
       <h3>MAKASIH UDAH MAU MAAFIN Saya 🫶</h3>
       <p id="statusSimpan" style="font-size:12px;color:var(--abu)">Makasih udah baca sampai sini 💌</p>
@@ -230,8 +251,9 @@
 <div class="layar sembunyi" id="layarHangus">
   <div style="font-size:52px">🔥💌</div>
   <h1>Yah, suratnya udah hangus...</h1>
-  <p>Tapi...., permintaan maaf saya ngga ikut kebakar kok. Saya tetap minta maaf, beneran. 💌<br><br><span style="font-size:13px">Psst... kalau tadi belum sempat baca, tahan tombol di bawah selama 3 detik ya 👀</span></p>
-  <button id="mintaBaru">Buka surat lagi</button>
+  <p>Tapi...., permintaan maaf saya ngga ikut kebakar kok. Saya tetap minta maaf, beneran. 💌</p>
+  <button id="mintaBaru" type="button"><span class="isiJreng" id="jrengBaru"></span><span class="isi">Tahan untuk membuka surat lagi</span></button>
+  <p style="font-size:12px;color:var(--abu);margin-top:8px">Tahan tombol selama 3 detik</p>
 </div>
 
 <script>
@@ -284,22 +306,55 @@ let dibuka = false, terbakar = false;
 // kalau sudah pernah hangus → tampilkan layar hangus
 if (!PREVIEW && localStorage.getItem(KEY)) tampilHangus();
 
-// ---- tahan untuk membuka ----
-(function(){
-  const btn = $('tombolTahan'), jreng = $('jreng');
-  let raf, mulai;
-  function mulaiTekan(e){ e.preventDefault(); mulai = performance.now();
-    (function langkah(){
-      const p = Math.min(1, (performance.now() - mulai) / 1500);
-      jreng.style.transform = 'scaleX(' + p + ')';
-      if (p < 1) raf = requestAnimationFrame(langkah); else bukaSurat();
-    })();
+function pasangTahan(button, progress, durasi, selesai){
+  let raf = 0, mulai = 0, aktif = false, sudahSelesai = false;
+  function mulaiTahan(){
+    if (aktif || sudahSelesai) return;
+    aktif = true;
+    mulai = performance.now();
+    function langkah(sekarang){
+      if (!aktif) return;
+      const p = Math.min(1, (sekarang - mulai) / durasi);
+      progress.style.transform = 'scaleX(' + p + ')';
+      if (p >= 1){
+        aktif = false;
+        sudahSelesai = true;
+        raf = 0;
+        selesai();
+      } else {
+        raf = requestAnimationFrame(langkah);
+      }
+    }
+    raf = requestAnimationFrame(langkah);
   }
-  function lepas(){ cancelAnimationFrame(raf); jreng.style.transform = 'scaleX(0)'; }
-  btn.addEventListener('pointerdown', mulaiTekan);
-  btn.addEventListener('pointerup', lepas);
-  btn.addEventListener('pointerleave', lepas);
-})();
+  function lepasTahan(){
+    if (!aktif) return;
+    aktif = false;
+    cancelAnimationFrame(raf);
+    raf = 0;
+    progress.style.transform = 'scaleX(0)';
+  }
+  button.addEventListener('pointerdown', event => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    mulaiTahan();
+  });
+  button.addEventListener('pointerup', lepasTahan);
+  button.addEventListener('pointercancel', lepasTahan);
+  button.addEventListener('pointerleave', lepasTahan);
+  button.addEventListener('keydown', event => {
+    if (event.key === ' ' || event.key === 'Enter'){
+      event.preventDefault();
+      mulaiTahan();
+    }
+  });
+  button.addEventListener('keyup', event => {
+    if (event.key === ' ' || event.key === 'Enter') lepasTahan();
+  });
+  button.addEventListener('click', event => event.preventDefault());
+  window.addEventListener('blur', lepasTahan);
+}
+pasangTahan($('tombolTahan'), $('jreng'), 1500, bukaSurat);
 
 function bukaSurat(){
   if (dibuka) return; dibuka = true;
@@ -363,28 +418,19 @@ window.addEventListener('pagehide', () => {
   if (dibuka && !terbakar && !PREVIEW) localStorage.setItem(KEY, '1');
 });
 
-// Buka surat lagi: tahan 3 detik biar ga gampangan
-(function(){
-  const btn = $('mintaBaru');
-  let raf, mulai;
-  function tekan(e){ e.preventDefault(); mulai = performance.now();
-    btn.textContent = 'tahan...';
-    (function cek(){
-      if (performance.now() - mulai >= 3000){ localStorage.removeItem(KEY); location.reload(); return; }
-      raf = requestAnimationFrame(cek);
-    })();
-  }
-  function lepas(){ cancelAnimationFrame(raf); btn.textContent = 'Buka surat lagi'; }
-  btn.addEventListener('pointerdown', tekan);
-  btn.addEventListener('pointerup', lepas);
-  btn.addEventListener('pointerleave', lepas);
-})();
+pasangTahan($('mintaBaru'), $('jrengBaru'), 3000, () => {
+  localStorage.removeItem(KEY);
+  location.reload();
+});
 
 // ---- meter kesungguhan + probabilitas ----
 let meter = 0;
 const boxes = document.querySelectorAll('#compList input[type="checkbox"]');
 const customDipilih = $('customDipilih');
-customDipilih.addEventListener('change', updateProb);
+customDipilih.addEventListener('change', () => {
+  customDipilih.closest('.custom-kompensasi').classList.toggle('dipilih', customDipilih.checked);
+  updateProb();
+});
 function updateProb(){
   let c = 0; boxes.forEach(b => { if (b.checked) c++; });
   if (customDipilih.checked && $('permintaanCustom').value.trim()) c++;
@@ -401,35 +447,37 @@ $('heartBtn').addEventListener('click', () => {
     meter < 100 ? 'PLISSSSSSS' : 'OKE, Makasih yaa udah maafin saya 🫡';
   updateProb();
 });
-boxes.forEach(b => b.addEventListener('change', updateProb));
+boxes.forEach(b => b.addEventListener('change', () => {
+  b.closest('label').classList.toggle('dipilih', b.checked);
+  updateProb();
+}));
 $('permintaanCustom').addEventListener('input', updateProb);
 
 // ---- pemutar lagu ----
 const lagu = $('lagu');
 const musikBtn = $('musikBtn');
 function updateMusikButton(){
-  const playing = !lagu.paused;
+  const playing = !lagu.paused && !musikGagal;
   musikBtn.textContent = playing ? '❚❚ Jeda' : '▶ Putar';
-  $('musikStatus').textContent = playing ? 'Lagu lagi diplay. Baca pelan-pelan, ya.' : 'Putar lagu sambil baca surat ini.';
+  $('musikStatus').textContent = musikGagal ? 'Lagu belum bisa diputar. Pastikan file lagu.mp3 ada di folder Langa atau sejajar dengan file ini.' :
+    playing ? 'Lagu sedang diputar. Baca pelan-pelan, ya.' : 'Putar lagu sambil baca surat ini.';
 }
+let musikGagal = false;
 musikBtn.addEventListener('click', async () => {
   if (lagu.paused) {
-    try { await lagu.play(); }
-    catch (e) { $('musikStatus').textContent = 'Belum bisa diplay. Pastikan file lagu.mp3 ada di folder yang sama.'; }
+    if (lagu.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+      musikGagal = true;
+    } else {
+      try { await lagu.play(); }
+      catch (e) { musikGagal = true; }
+    }
+    if (lagu.error || lagu.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) musikGagal = true;
   } else { lagu.pause(); }
   updateMusikButton();
 });
 lagu.addEventListener('play', updateMusikButton);
 lagu.addEventListener('pause', updateMusikButton);
-// Coba putar otomatis saat surat dibuka; browser mungkin tetap meminta interaksi pengguna.
-const bukaSuratAsli = bukaSurat;
-bukaSurat = function(){
-  bukaSuratAsli();
-  lagu.play().then(updateMusikButton).catch(() => {
-    $('musikStatus').textContent = 'Tekan Putar kalau lagunya belum mulai.';
-  });
-};
-
+lagu.addEventListener('error', () => { musikGagal = true; updateMusikButton(); });
 // ---- kirim respons ke Google Sheets melalui Apps Script ----
 let responsTerkirim = false;
 async function simpanJawaban() {
@@ -473,16 +521,7 @@ async function simpanJawaban() {
   }
 }
 
-// ---- tombol maafin (jail dulu, baru nurut) ----
-let dodged = false;
 $('forgiveBtn').addEventListener('click', function(){
-  if (!dodged){
-    dodged = true;
-    this.classList.add('dodging');
-    this.textContent = 'Eh, yakin nih? 😤';
-    setTimeout(() => { this.classList.remove('dodging'); this.textContent = 'Ayolah, maafin Saya ya 🥺'; }, 1100);
-    return;
-  }
   this.classList.add('gone');
   simpanJawaban();
   setTimeout(() => { this.style.display = 'none'; $('finalCard').classList.remove('sembunyi'); confetti(); }, 320);
